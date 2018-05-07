@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: 'SAM template for Serverless framework service: '
+Resources:
+  Hello:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: bin/hello
+      Runtime: go1.x
+      CodeUri: /home/leandro/Code/Go/src/go-lambda/.serverless/go-lambda.zip
+      MemorySize: 128
+      Timeout: 3
+  World:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: bin/world
+      Runtime: go1.x
+      CodeUri: /home/leandro/Code/Go/src/go-lambda/.serverless/go-lambda.zip
+      MemorySize: 128
+      Timeout: 3
