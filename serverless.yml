@@ -20,6 +20,11 @@ service: go-lambda
 provider:
   name: aws
   runtime: go1.x
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - lambda:InvokeAction
+      Resource: "*"
 
 # you can overwrite defaults here
 #  stage: dev
@@ -54,6 +59,8 @@ package:
 functions:
   hello:
     handler: bin/hello
+    events:
+      - sns: hello-dispatcher
   world:
     handler: bin/world
 

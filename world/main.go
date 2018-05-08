@@ -2,15 +2,15 @@ package main
 
 import (
 	"github.com/aws/aws-lambda-go/lambda"
+	"github.com/aws/aws-lambda-go/events"
+	"log"
 )
 
-type Response struct {
-	Message string `json:"message"`
-}
-
-func Handler() (Response, error) {
-	return Response{
-		Message: "Okay so your other function also executed successfully!",
+func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+	log.Println("world")
+	return events.APIGatewayProxyResponse{
+		Body:       "Go serverless local! World",
+		StatusCode: 200,
 	}, nil
 }
 
